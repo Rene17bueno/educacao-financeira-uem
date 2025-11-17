@@ -1,0 +1,55 @@
+/* style.css */
+
+/* Define cores customizadas baseadas no emblema da UEM */
+:root {
+    --uem-red: #d40000;
+    --uem-black: #000000;
+}
+
+/* Ajuste obrigatório para que o conteúdo não fique escondido sob a navbar fixa */
+/* A regra de padding-top já está no HTML, mas esta serve para outros ajustes de fonte e cor de fundo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Fundo cinza claro para contraste */
+    color: var(--uem-black);
+}
+
+/* Estilos gerais de alinhamento ABNT */
+.text-justify {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* Estilização específica para o cabeçalho do artigo (título, autores) */
+h1 {
+    font-size: 2.5rem;
+}
+
+/* Links do sumário e referências */
+.list-group-item a {
+    color: var(--uem-black);
+    transition: color 0.2s ease-in-out;
+}
+
+.list-group-item a:hover {
+    color: var(--uem-red);
+}
+
+/* Bloco de citação (para citações longas) */
+.blockquote {
+    border-left: 5px solid var(--uem-red) !important;
+}
+
+/* Ajuste de margens e preenchimentos para melhor leitura em dispositivos menores */
+@media (max-width: 767.98px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    h1 {
+        font-size: 1.75rem;
+    }
+    .display-5 {
+        font-size: 2rem;
+    }
+}
