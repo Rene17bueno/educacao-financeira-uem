@@ -7,7 +7,6 @@
 }
 
 /* Ajuste obrigatório para que o conteúdo não fique escondido sob a navbar fixa */
-/* A regra de padding-top já está no HTML, mas esta serve para outros ajustes de fonte e cor de fundo */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa; /* Fundo cinza claro para contraste */
@@ -40,6 +39,23 @@ h1 {
     border-left: 5px solid var(--uem-red) !important;
 }
 
+/* Estilos do Jogo Integrados */
+#jogo-section .display-1 {
+    font-weight: 800;
+    font-size: 5rem;
+}
+.btn-lg {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+.d-none {
+    display: none !important;
+}
+.card.border-uem-red {
+    border: 3px solid var(--uem-red) !important;
+}
+
 /* Ajuste de margens e preenchimentos para melhor leitura em dispositivos menores */
 @media (max-width: 767.98px) {
     .container {
@@ -51,5 +67,8 @@ h1 {
     }
     .display-5 {
         font-size: 2rem;
+    }
+    #jogo-section .display-1 {
+        font-size: 3rem;
     }
 }
