@@ -101,7 +101,7 @@
             <section id="resumo" class="mb-5">
                 <h2 class="text-uem-red fw-bold text-center">RESUMO</h2>
                 <p class="text-justify">
-                    A educação financeira vem se tornando cada vez mais importante na vida da população mundial. Essa relevância se deu devido aos problemas causados pelo desentendimento do assunto, que resultaram na necessidade de uma tomada de atitude a respeito dessas questões. Uma possível solução seria aplicar essa temática às crianças, ensinando-as desde cedo a serem cidadãos mais responsáveis e conscientes. Por isso, o principal objetivo deste trabalho é mostrar a importância da **educação financeira infantil**, através da criação de um **jogo** como **atividade lúdica**, destinada ao público-alvo. Para que seja acessível, esse recurso possuirá duas versões, uma física e uma online, que serão aplicadas em estudantes do Ensino Fundamental I, do Colégio de Aplicação Pedagógica - UEM. A metodologia utilizada é uma **revisão literária**, feita por meio de fontes que dissertam sobre o tema abordado. Espera-se que, com a aplicação do jogo aos estudantes e a conscientização sobre o assunto, seja possível apresentar a importância da educação financeira às crianças, não somente como resolução do problema, mas também com ensinamento para suas vidas.
+                    A educação financeira vem se tornando cada vez mais importante na vida da população mundial. Essa relevância se deu devido aos problemas causados pelo desentendimento do assunto, que resultaram na necessidade de uma tomada de atitude a respeito dessas questões. Uma possível solução seria aplicar essa temática às crianças, ensinando-as desde cedo a serem cidadãos mais responsáveis e conscientes. Por isso, o principal objetivo deste trabalho é mostrar a importância da **educação financeira infantil**, através da criação de um **jogo** como **atividade lúdica**, destinada ao público-alvo. Para que seja acessível, esse recurso possuirá duas versões, uma física e uma online, que serão aplicadas em estudantes do Ensino Fundamental I, do Colégio de Aplicação Pedagógica da UEM. A metodologia utilizada é uma **revisão literária**, feita por meio de fontes que dissertam sobre o tema abordado. Espera-se que, com a aplicação do jogo aos estudantes e a conscientização sobre o assunto, seja possível apresentar a importância da educação financeira às crianças, não somente como resolução do problema, mas também com ensinamento para suas vidas.
                 </p>
                 <p class="fw-bold">Palavras-chave: Educação financeira; Crianças; Atividades lúdicas.</p>
             </section>
@@ -198,15 +198,27 @@
                     <div class="card-header bg-uem-red text-white fw-bold">Cadastro dos Jogadores e Configurações</div>
                     <div class="card-body">
                         <form id="form-jogadores">
+                            
+                            <div class="mb-4 p-3 border rounded">
+                                <label class="form-label fw-bold d-block mb-2">Modo de Jogo:</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="modoJogo" id="modo1P" value="1" checked>
+                                    <label class="form-check-label" for="modo1P">1 Jogador (Múltipla Escolha)</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="modoJogo" id="modo2P" value="2">
+                                    <label class="form-check-label" for="modo2P">2 Jogadores (Batalha / Apresentador)</label>
+                                </div>
+                            </div>
                             <div class="row">
-                                <div class="col-md-6 border-end">
+                                <div id="div-jogador-1" class="col-md-6 border-end">
                                     <h4 class="text-primary fw-bold">Jogador 1 (Azul)</h4>
                                     <input type="text" id="p1-nome" class="form-control mb-2" placeholder="Nome da criança" required>
                                     <input type="text" id="p1-cidade" class="form-control mb-2" placeholder="Cidade">
                                     <input type="text" id="p1-colegio" class="form-control mb-2" placeholder="Colégio">
                                     <input type="text" id="p1-whats" class="form-control mb-2" placeholder="WhatsApp Resp.">
                                 </div>
-                                <div class="col-md-6">
+                                <div id="div-jogador-2" class="col-md-6">
                                     <h4 class="text-success fw-bold">Jogador 2 (Verde)</h4>
                                     <input type="text" id="p2-nome" class="form-control mb-2" placeholder="Nome da criança" required>
                                     <input type="text" id="p2-cidade" class="form-control mb-2" placeholder="Cidade">
@@ -216,8 +228,8 @@
                             </div>
 
                             <div class="mt-4 border p-3 rounded">
-                                <label for="seletor-voz" class="form-label fw-bold">Escolha a Voz do Narrador:</label>
-                                <select id="seletor-voz" class="form-select"></select>
+                                <label for="voz-tts" class="form-label fw-bold">Escolha a Voz do Narrador:</label>
+                                <select id="voz-tts" class="form-select"></select> 
                                 <small class="text-muted">A voz feminina brasileira será selecionada automaticamente, se disponível.</small>
                             </div>
                             <div class="text-center mt-4">
@@ -230,18 +242,18 @@
                 <div id="tela-jogo" class="d-none mx-auto" style="max-width: 700px;">
                     <div class="row text-center mb-4">
                         <div class="col-6">
-                            <div class="card border-primary h-100 bg-light">
+                            <div id="p1-info" class="card border-primary h-100 bg-light">
                                 <div class="card-body">
-                                    <h3 id="nome-placar-1" class="text-primary fw-bold">J1</h3>
-                                    <h1 id="score-1" class="display-1 fw-bold">0</h1>
+                                    <h3 id="p1-nome-placar" class="text-primary fw-bold">J1</h3>
+                                    <h1 id="p1-score-placar" class="display-1 fw-bold">0</h1>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="card border-success h-100 bg-light">
+                        <div class="col-6" id="div-placar-p2"> 
+                            <div id="p2-info" class="card border-success h-100 bg-light">
                                 <div class="card-body">
-                                    <h3 id="nome-placar-2" class="text-success fw-bold">J2</h3>
-                                    <h1 id="score-2" class="display-1 fw-bold">0</h1>
+                                    <h3 id="p2-nome-placar" class="text-success fw-bold">J2</h3>
+                                    <h1 id="p2-score-placar" class="display-1 fw-bold">0</h1>
                                 </div>
                             </div>
                         </div>
@@ -249,32 +261,45 @@
 
                     <div class="card shadow-lg mb-4">
                         <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                            <span>Questão <span id="num-questao">1</span>/5</span>
+                            <span>Questão <span id="num-questao">1</span>/<span class="total-questoes">5</span></span>
                             <button class="btn btn-sm btn-outline-light" onclick="lerPergunta()">🔊 Repetir</button>
                         </div>
                         <div class="card-body text-center p-4">
                             <h3 id="texto-pergunta" class="mb-4">Clique em Próxima para começar!</h3>
                             <div id="area-resposta" class="d-none alert alert-warning mt-3">
-                                <strong>Resposta:</strong> <span id="texto-resposta" class="fs-4">---</span>
+                                <strong>Resposta Correta:</strong> <span id="texto-resposta" class="fs-4">---</span>
                             </div>
+                            
+                            <div id="opcoes-multipla-escolha" class="mt-3">
+                                </div>
+                            
+                            <div id="feedback-resposta" class="alert d-none mt-3 fw-bold"></div>
                         </div>
                     </div>
 
                     <div class="card bg-light">
                         <div class="card-body text-center">
-                            <div id="botoes-controle">
-                                <button class="btn btn-primary btn-lg w-100" onclick="proximaPergunta()">▶ PRÓXIMA PERGUNTA</button>
+
+                            <div id="botoes-controle-1p" class="d-none mt-4">
+                                <button id="btn-proxima-1p" class="btn btn-primary btn-lg w-100">▶ PRÓXIMA PERGUNTA</button>
                             </div>
-                            <div id="botoes-resposta" class="d-none mt-2">
-                                <p>Quem levantou a mão primeiro?</p>
-                                <button class="btn btn-outline-primary btn-lg me-2" onclick="validarResposta(1)">✋ Jogador 1</button>
-                                <button class="btn btn-outline-success btn-lg" onclick="validarResposta(2)">✋ Jogador 2</button>
-                                <br><button class="btn btn-link mt-2" onclick="revelarResposta()">Ver Resposta</button>
-                            </div>
-                            <div id="botoes-validacao" class="d-none mt-2">
-                                <p>A resposta de <span id="jogador-respondendo" class="fw-bold">---</span> estava:</p>
-                                <button class="btn btn-success btn-lg me-2" onclick="confirmarPonto(true)">✅ CERTA</button>
-                                <button class="btn btn-danger btn-lg" onclick="confirmarPonto(false)">❌ ERRADA</button>
+                            
+                            <div id="botoes-controle-2p" class="d-none mt-4">
+                                
+                                <div id="botoes-resposta" class="mt-2">
+                                    <p class="lead fw-bold mb-3">Quem apertou o botão primeiro?</p>
+                                    <button id="btn-p1-resposta" class="btn btn-outline-primary btn-lg me-2">✋ Jogador 1</button>
+                                    <button id="btn-p2-resposta" class="btn btn-outline-success btn-lg">✋ Jogador 2</button>
+                                    <br><button id="revelar-resposta" class="btn btn-link mt-2">Ver Resposta (Apresentador)</button>
+                                </div>
+                                
+                                <div id="botoes-validacao" class="d-none mt-4 p-3 border rounded bg-white">
+                                    <p class="lead fw-bold">A resposta de <span id="jogador-respondendo" class="text-uem-red">---</span> estava:</p>
+                                    <button id="btn-certa" class="btn btn-success btn-lg me-2">✅ CERTA</button>
+                                    <button id="btn-errada" class="btn btn-danger btn-lg">❌ ERRADA</button>
+                                </div>
+                                
+                                <button id="btn-proxima-2p" class="btn btn-dark btn-lg w-100 mt-3">▶ PRÓXIMA PERGUNTA</button>
                             </div>
                         </div>
                     </div>
@@ -286,10 +311,10 @@
                     <h3 id="mensagem-vencedor" class="my-3">...</h3>
                     <div class="row justify-content-center">
                         <div class="col-auto"><span id="res-nome-1"></span>: <span id="res-score-1">0</span></div>
-                        <div class="col-auto"><span id="res-nome-2"></span>: <span id="res-score-2">0</span></div>
+                        <div class="col-auto" id="placar-res-p2"><span id="res-nome-2"></span>: <span id="res-score-2">0</span></div>
                     </div>
                     <button class="btn btn-dark mt-3" onclick="location.reload()">Jogar Novamente</button>
-                    <button class="btn btn-success mt-3" onclick="baixarDados()">💾 Baixar Cadastro (Excel)</button>
+                    <button class="btn btn-success mt-3">💾 Baixar Cadastro (Excel)</button>
                 </div>
             </section>
             </article>
@@ -306,13 +331,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
