@@ -6,8 +6,23 @@
     --uem-black: #000000;
 }
 
+/* Classes utilitárias essenciais para cores da UEM */
+.bg-uem-red {
+    background-color: var(--uem-red) !important;
+}
+.text-uem-red {
+    color: var(--uem-red) !important;
+}
+.text-uem-black {
+    color: var(--uem-black) !important;
+}
+.border-uem-red {
+    border-color: var(--uem-red) !important;
+}
+
 /* Ajuste obrigatório para que o conteúdo não fique escondido sob a navbar fixa */
 body {
+    padding-top: 70px; /* Adiciona espaço no topo para a navbar fixa */
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa; /* Fundo cinza claro para contraste */
     color: var(--uem-black);
@@ -46,29 +61,22 @@ h1 {
 }
 .btn-lg {
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-}
-.d-none {
-    display: none !important;
-}
-.card.border-uem-red {
-    border: 3px solid var(--uem-red) !important;
+    font-weight: bold;
 }
 
-/* Ajuste de margens e preenchimentos para melhor leitura em dispositivos menores */
-@media (max-width: 767.98px) {
-    .container {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    h1 {
-        font-size: 1.75rem;
-    }
-    .display-5 {
-        font-size: 2rem;
-    }
-    #jogo-section .display-1 {
-        font-size: 3rem;
-    }
+/* Estilo para os botões de resposta (para acomodar o texto longo) */
+#opcoes-resposta .btn {
+    white-space: normal; /* Permite quebra de linha no botão */
+    height: auto; 
+    min-height: 50px; /* Garante altura mínima para clique */
+    text-align: left;
+    padding: 15px;
+    margin-bottom: 5px; /* Pequeno espaçamento entre botões */
+    transition: none; /* Desativa a transição para evitar flash de cor no clique */
+}
+
+/* Estilos para o placar */
+#p1-info, #p2-info {
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
 }
